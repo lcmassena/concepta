@@ -1,22 +1,19 @@
-﻿using DryIoc;
+﻿using Concepta.Application.Interfaces.Services.TravelLogix;
+using Concepta.Services.TravelLogix;
+using DryIoc;
 using Massena.Infrastructure.Core.Resilience.Http;
 using Massena.Infrastructure.Core.Web;
-using Concepta.Application.Interfaces.Services.TravelLogix;
-using Concepta.Services.TravelLogix;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
 using Polly;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.IO;
 using System.Net.Http;
-using System.Text;
 
 namespace Concepta.API
 {
@@ -87,7 +84,7 @@ namespace Concepta.API
                         {
                             var msg = $"Retry {retryCount} implemented with Polly's RetryPolicy " +
                                 $"of {context.PolicyKey} " +
-                                $"at {context.ExecutionKey}, " +
+                                $"at {context.OperationKey}, " +
                                 $"due to: {exception}.";
                             //_logger.LogWarning(msg);
                             //_logger.LogDebug(msg);

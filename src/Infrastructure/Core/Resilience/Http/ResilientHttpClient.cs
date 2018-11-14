@@ -141,7 +141,7 @@ namespace Massena.Infrastructure.Core.Resilience.Http
             }
 
             // Executes the action applying all the policies defined in the wrapper
-            return await policyWrap.ExecuteAsync(action, new Context(normalizedOrigin));
+            return await policyWrap.ExecuteAsync((ct) => action(), new Context(normalizedOrigin));
         }
 
 

@@ -34,8 +34,8 @@ namespace Massena.Infrastructure.Core.IoC
                         type.GetInterfaces().Length != 0)   // which implementing some interface(s)
                     .ToList();
 
-            container.RegisterDelegate<SingleInstanceFactory>(r => r.Resolve);
-            container.RegisterDelegate<MultiInstanceFactory>(r => serviceType => r.ResolveMany(serviceType));
+            //container.RegisterDelegate<SingleInstanceFactory>(r => r.Resolve);
+            //container.RegisterDelegate<MultiInstanceFactory>(r => serviceType => r.ResolveMany(serviceType));
 
             Parallel.ForEach(implementingClasses, implementingClass =>
             {

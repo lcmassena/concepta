@@ -44,7 +44,7 @@ namespace Massena.Infrastructure.Core.Resilience.Http
                     {
                         var msg = $"Retry {retryCount} implemented with Polly's RetryPolicy " +
                             $"of {context.PolicyKey} " +
-                            $"at {context.ExecutionKey}, " +
+                            $"at {context.OperationKey}, " +
                             $"due to: {exception}.";
                         _logger.LogWarning(msg);
                         _logger.LogDebug(msg);
