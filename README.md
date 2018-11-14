@@ -1,5 +1,4 @@
 # Concepta
-
 This solution is part of the test made to prove concepts for Concepta
 
 In this solution, I am using Event Sourcing with Mediart as execution engine for commands, queries and events.
@@ -19,19 +18,30 @@ The solution contains 5 projects as described:
 	Main components for resilience, dependency injection, extensions and more.
 	This is a personal collection of best practices organized like a small framework.  
  
-# Testing the solution
+## Testing the solution
 
-Import the Postman settings on Postman 
+To facilitate the tests, I've created the settings for Postman.
+First, import the settings on Postman using the file below:
 https://github.com/lcmassena/concepta/blob/master/docs/Concepta%20-%20Test.postman_collection.json
 
-Open the .sln file on Visual Studio
-Start debugging
-Check if the API started on door 1404
+#### Starting the application
+- Open the .sln file on Visual Studio
+- Start debugging - Check if the API started on door 1404
 
+#### Requesting data to the API
 * To request a token
-  with postman opened, open the Concepta - Test collection
-  Open and run the *Token* request
+  With postman opened, open the **Concepta - Test** collection
+  Open and run the **Token** request
   
 * To request an availability
-  With postman opened, open the Concepta - Test collection
-  Open and run the *Ticket Availability* request
+  With postman opened, open the **Concepta - Test** collection
+  Open and run the **Ticket Availability** request
+
+#### Testing TravelLogix response time
+* To request a TravelLogix token
+  With postman opened, open the **Concepta - Test** collection
+  Open and run the **TravelLogix Token** request
+  
+* To request an availability
+  With postman opened, open the **Concepta - Test** collection
+  Open and run the **TravelLogix Search** request
