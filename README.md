@@ -29,19 +29,20 @@ https://github.com/lcmassena/concepta/blob/master/docs/Concepta%20-%20Test.postm
 - Start debugging - Check if the API started on door 1404
 
 #### Requesting data to the API
-* To request a token
-  With postman opened, open the **Concepta - Test** collection
-  Open and run the **Token** request
+##### To request a token
+- With postman opened, open the **Concepta - Test** collection
+- Open and run the **Token** request
   
-* To request an availability
-  With postman opened, open the **Concepta - Test** collection
-  Open and run the **Ticket Availability** request
+##### To request an availability
+- With postman opened, open the **Concepta - Test** collection
+- Open and run the **Ticket Availability** request
 
 #### Testing TravelLogix response time
-* To request a TravelLogix token
-  With postman opened, open the **Concepta - Test** collection
-  Open and run the **TravelLogix Token** request
+*This requests do not share tokens with API requests*
+##### To request a TravelLogix token
+- With postman opened, open the **Concepta - Test** collection
+- Open and run the **TravelLogix Token** request
   
-* To request an availability
-  With postman opened, open the **Concepta - Test** collection
-  Open and run the **TravelLogix Search** request
+##### To request an availability
+- With postman opened, open the **Concepta - Test** collection
+- - Open and run the **TravelLogix Search** request
