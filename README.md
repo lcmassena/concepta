@@ -1,17 +1,37 @@
-# concepta
+# Concepta
 
-Solução teste para consultar dados de um ticket.
+This solution is part of the test made to prove concepts for Concepta
 
-Esse modelo arquitetural é baseado em Event Sourcing, usando o Mediart como engine de Mediação de exeução de comandos.
+In this solution, I am using Event Sourcing with Mediart as execution engine for commands, queries and events.
 
-A solução contém 5 projetos, sendo eles:
-- Hexagonal.API 
-  Uma API .net core, responsável por disparar os eventos
+The solution contains 5 projects as described:
+- Hexagonal.API
+	An API using .net core, where commands and queries are triggered
 - Application
-  Core do negócio. Onde deverão estar concentrados os objetos de negócio e regras.
+	The core of business, following the DDD concept, where rules are described
 - Repositories
-  Criei dois repositories com nomes separados apenas para exemplificar a segregação de responsabilidade e a flexibilidade desse modelo arquitetural.
+	I've created a repository just for explanation purpouses.
+	Called AzureTables, just contains a list of users/authentication.
+- Services
+	Where logics related to third part systems are located and executed.
+	In this case just for TravelLogix API.
 - Core
-  Possui funcionalidades que podem/devem ser reutilizadas em outros projetos.
-  
+	Main components for resilience, dependency injection, extensions and more.
+	This is a personal collection of best practices organized like a small framework.  
  
+# Testing the solution
+
+Import the Postman settings on Postman 
+https://github.com/lcmassena/concepta/blob/master/docs/Concepta%20-%20Test.postman_collection.json
+
+Open the .sln file on Visual Studio
+Start debugging
+Check if the API started on door 1404
+
+* To request a token
+  with postman opened, open the Concepta - Test collection
+  Open and run the *Token* request
+  
+* To request an availability
+  With postman opened, open the Concepta - Test collection
+  Open and run the *Ticket Availability* request
