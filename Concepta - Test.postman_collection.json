@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "ddd5d299-780d-40f3-b006-d6e9a96a290f",
+		"name": "Concepta - Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ticket Availability",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{ConceptaToken}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Language\": \"ENG\",\n    \"Currency\": \"USD\",\n    \"destination\": \"MCO\",\n    \"DateFrom\": \"11/13/2018\",\n    \"DateTO\": \"11/15/2018\",\n    \"Occupancy\": {\n        \"AdultCount\": \"1\",\n        \"ChildCount\": \"1\",\n        \"ChildAges\": [\n            \"10\"\n        ]\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:1404/api/ticket",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1404",
+					"path": [
+						"api",
+						"ticket"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "28574335-2068-456f-8be1-2536d50ec69c",
+						"exec": [
+							"pm.globals.set(\"ConceptaToken\", \"bearer \" + pm.response.json().access_token);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{username:'test1@test2.com', password:'Aa234567!', grant_type:'password'}"
+				},
+				"url": {
+					"raw": "http://localhost:1404/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1404",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TravelLogix - Search",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer {{TravelLogix}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Language\": \"ENG\",\n    \"Currency\": \"USD\",\n    \"destination\": \"MCO\",\n    \"DateFrom\": \"11/13/2018\",\n    \"DateTO\": \"11/30/2018\",\n    \"Occupancy\": {\n        \"AdultCount\": \"1\",\n        \"ChildCount\": \"1\",\n        \"ChildAges\": [\n            \"10\"\n        ]\n    }\n}"
+				},
+				"url": {
+					"raw": "http://travellogix.api.test.conceptsol.com/api/Ticket/Search",
+					"protocol": "http",
+					"host": [
+						"travellogix",
+						"api",
+						"test",
+						"conceptsol",
+						"com"
+					],
+					"path": [
+						"api",
+						"Ticket",
+						"Search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TravelLogix Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2d9b71cf-a22c-4321-b2bb-24b3869917a6",
+						"exec": [
+							"pm.globals.set(\"TravelLogix\", pm.response.json().access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "grant_type=password&username=test1%40test2.com&password=Aa234567%21"
+				},
+				"url": {
+					"raw": "http://travellogix.api.test.conceptsol.com/Token",
+					"protocol": "http",
+					"host": [
+						"travellogix",
+						"api",
+						"test",
+						"conceptsol",
+						"com"
+					],
+					"path": [
+						"Token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{ConceptaToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "697bda0d-2dac-4dbf-910c-b7e05d861d98",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b7ec6a98-7d64-443a-be09-ae77258ee71e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
